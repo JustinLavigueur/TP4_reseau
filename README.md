@@ -43,6 +43,9 @@ Photo qui montre le sous-réseau du vcn2:
 - Ouvrir les ports suivants :
   - **ICMP (Ping)** pour les tests de communication
 
+![Les instances](imagesTP4/lesintances.png)
+![Instance A](imagesTP4/instance-a-vcn.png)
+![Instance B](imagesTP4/instance-b-vcn.png)
 
 ## Étape 2 — Création de la passerelle DRG
 
