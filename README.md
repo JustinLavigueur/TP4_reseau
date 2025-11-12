@@ -19,6 +19,8 @@ réseau pour l'appairage au moyen d'une passerelle DRG` à ce lien.
 - **vcn1** : CIDR `10.0.0.0/16`
 - **vcn2** : CIDR `10.1.0.0/16`
 
+![Création des VCN](imagesTP4/lesvcn.png)
+
 Chaque VCN contient un sous-réseau public :
   - `10.0.0.0/24` pour le vcn1
 
@@ -31,7 +33,6 @@ Photo qui montre le sous-réseau du vcn2:
     
 - On ajoute une **Internet Gateway** et une **table de routage** par défaut à chaque VCN.
 
-![Création des VCN](imagesTP4/lesvcn.png)
 
 
 
