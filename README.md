@@ -37,15 +37,19 @@ Photo qui montre le sous-réseau du vcn2:
 
 
 ### 1.2 — Création des instances Ubuntu 22.04
-- Créer **une instance Ubuntu 22.04** dans chaque VCN.  
-- **Instance-A** : rattachée au VCN A.  
-- **Instance-B** : rattachée au VCN B.  
+- Créer **une instance Ubuntu 22.04** dans chaque VCN.
+
+**Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
+- **instance-TP3A** : rattachée au vcn1.
+![Instance A](imagesTP4/instance-a-vcn.png)
+  
+- **Instance-TP3B** : rattachée au vcn2.  
+![Instance B](imagesTP4/instance-b-vcn.png)
+
 - Ouvrir les ports suivants :
   - **ICMP (Ping)** pour les tests de communication
 
 ![Les instances](imagesTP4/lesintances.png)
-![Instance A](imagesTP4/instance-a-vcn.png)
-![Instance B](imagesTP4/instance-b-vcn.png)
 
 ## Étape 2 — Création de la passerelle DRG
 
