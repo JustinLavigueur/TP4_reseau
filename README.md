@@ -18,6 +18,7 @@ réseau pour l'appairage au moyen d'une passerelle DRG` à ce lien.
 ### 1.1 — Création des VCN
 - **vcn1** : CIDR `10.0.0.0/16`
 - **vcn2** : CIDR `10.1.0.0/16`
+
 Chaque VCN contient un sous-réseau public :
   - `10.0.0.0/24` pour le vcn1
 
