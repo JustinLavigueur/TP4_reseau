@@ -56,8 +56,9 @@ Photo qui montre le sous-réseau du vcn2:
 
 1. On va dans **Networking → Dynamic Routing Gateways**
 2. On clique sur **Create DRG**
-3. On nomme la passerelle : `allo`
+3. On nomme la passerelle : `DRG-TP4`
 
+Voici la preuve:
 ![Création DRG](imagesTP4/drg.png)
 
 ## Étape 3 — Attachement des VCN créés prédécemment à la passerelle DRG
@@ -90,16 +91,16 @@ Photo qui montre le sous-réseau du vcn2:
 
 ## 🔒 Étape 5 — Mettre à jour les règles de sécurité
 
-### 5.1 — Dans le VCN A
-- Autoriser :
+### 5.1 — Dans le vcn1
+- On autorise :
   - **Type** : ICMP (Ping)
   - **Source CIDR** : `10.1.0.0/16`
 
 ![Ingress A](imagesTP4/ingress-rules-instance-a.png)
 ![Egress A](imagesTP4/egress-rules-instance-a.png)
 
-### 5.2 — Dans le VCN B
-- Autoriser :
+### 5.2 — Dans le vcn2
+- On autorise :
   - **Type** : ICMP (Ping)
   - **Source CIDR** : `10.0.0.0/16`
 
@@ -111,6 +112,6 @@ Photo qui montre le sous-réseau du vcn2:
 ## Étape 6 — Test de connectivité
 
 ### 6.1 — Connexion SSH
-Depuis votre poste local :
+Depuis notre poste local :
 ```bash
 ssh ubuntu@<IP_publique_instance_A>
