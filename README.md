@@ -1,5 +1,6 @@
 # TP4 – Réseau
-**Cours : Réseau**  
+**Cours : Réseau**
+
 **Travail pratique 4 : Routage inter-VCN oracle cloud,
 configuration d'un Serveur DHCP et évaluation de
 la performance d'un réseau**
@@ -37,7 +38,7 @@ Photo qui montre le sous-réseau du vcn2:
 
 
 ### 1.2 — Création des instances Ubuntu 22.04
-- Créer **une instance Ubuntu 22.04** dans chaque VCN.
+- On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ![Les instances](imagesTP4/lesintances.png)
 
 **Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
@@ -47,7 +48,7 @@ Photo qui montre le sous-réseau du vcn2:
 - **Instance-TP3B** : rattachée au vcn2.  
 ![Instance B](imagesTP4/instance-b-vcn.png)
 
-- Ouvrir les ports suivants :
+- On ouvre les ports suivants :
   - **ICMP (Ping)** pour les tests de communication
   - **22 (SSH)** pour la connexion
 
@@ -81,7 +82,7 @@ Voici la preuve:
 ![Routage Instance A](imagesTP4/routage-instance-a.png)
 
 ### 4.2 — Dans le VCN B
-- Ajouter une route :
+- On ajoute une route :
   - **Destination CIDR** : `10.0.0.0/16`
   - **Target Type** : DRG
 
@@ -89,7 +90,7 @@ Voici la preuve:
 
 ---
 
-## 🔒 Étape 5 — Mettre à jour les règles de sécurité
+## Étape 5 — Mise à jour des règles de sécurité
 
 ### 5.1 — Dans le vcn1
 - On autorise :
