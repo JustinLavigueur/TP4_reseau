@@ -72,7 +72,7 @@ Voici la preuve:
 ![Attachment VCN A](imagesTP4/attachement-drg-vcna.png)
 ![Attachment VCN B](imagesTP4/attachement-drg-vcnb.png)
 
-## Étape 4 — Configurer les tables de routage
+## Étape 4 — Configuration des tables de routage
 
 ### 4.1 — Dans le VCN A
 - On ajoute une route dans la table :
