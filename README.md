@@ -16,16 +16,20 @@ réseau pour l'appairage au moyen d'une passerelle DRG` à ce lien.
 ## 1. Création des 2 VCN et des deux instances avec Ubuntu 22.04
 
 ### 1.1 — Création des VCN
-- **VCN A** : CIDR `10.0.0.0/16`
-- **VCN B** : CIDR `10.1.0.0/16`
+- **vcn1** : CIDR `10.0.0.0/16`
+- **vcn2** : CIDR `10.1.0.0/16`
 - Chaque VCN contient un sous-réseau public :
-  - `10.0.1.0/24` pour le VCN A  
-  - `10.1.1.0/24` pour le VCN B  
+  - `10.0.0.0/24` pour le vcn1
+Photo qui montre le sous-réseau du vcn1:
+![VCN 1](imagesTP4/vcn1.png)
+  - `10.1.0.0/24` pour le vcn2
+Photo qui montre le sous-réseau du vcn2:
+![VCN 2](imagesTP4/vcn2.png)
+    
 - On ajoute une **Internet Gateway** et une **table de routage** par défaut à chaque VCN.
 
 ![Création des VCN](imagesTP4/lesvcn.png)
-![VCN 1](imagesTP4/vcn1.png)
-![VCN 2](imagesTP4/vcn2.png)
+
 
 
 ### 1.2 — Création des instances Ubuntu 22.04
