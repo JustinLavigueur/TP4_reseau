@@ -44,22 +44,23 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
   
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/allerSurInstance.png)
 - 3. On clique sur Créer une instance.
   
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 4. On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le compartiment où sera créée l'instance.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/nomInstance.png)
 - 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/22.04.png)
+[Connexion oracle cloud](imagesTP4/imageUbuntu.png)
 - 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/vNIcMax.png)
 - 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste a cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/cleSSH.png)
 - 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
