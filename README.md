@@ -44,31 +44,31 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
   
-![Connexion oracle cloud](imagesTP4/allerSurInstance.png)
+![allerSurInstance](imagesTP4/allerSurInstance.png)
 - 3. On clique sur Créer une instance.
   
 - 4. On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le compartiment où sera créée l'instance.
 
-![Connexion oracle cloud](imagesTP4/nomInstance.png)
+![nomInstance](imagesTP4/nomInstance.png)
 - 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
 
-![Connexion oracle cloud](imagesTP4/imageUbuntu.png)
-![Connexion oracle cloud](imagesTP4/22.04.png)
+![imageUbuntu](imagesTP4/imageUbuntu.png)
+![22.04](imagesTP4/22.04.png)
 - 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
 
-![Connexion oracle cloud](imagesTP4/vNIcMax.png)
+![vNIcMax](imagesTP4/vNIcMax.png)
 - 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste a cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
 
-![Connexion oracle cloud](imagesTP4/cleSSH.png)
+![cleSSH](imagesTP4/cleSSH.png)
 - 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
 
 ![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 9. On clique sur Créer l’instance et on attend que son statut devienne Running.
 
-[Connexion oracle cloud](imagesTP4/running.png)
+![running](imagesTP4/running.png)
 - 10. On se connecte à l’instance depuis son terminal avec ssh:
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 
 - 11. On répète les mêmes étapes pour la cération de la deuxième instance
 ![Les instances](imagesTP4/lesintances.png)
