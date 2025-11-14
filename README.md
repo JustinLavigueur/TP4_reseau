@@ -62,7 +62,6 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ![cleSSH](imagesTP4/cleSSH.png)
 - 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
 
-![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 9. On clique sur Créer l’instance et on attend que son statut devienne Running.
 
 ![running](imagesTP4/running.png)
