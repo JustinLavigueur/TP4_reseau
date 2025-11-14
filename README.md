@@ -47,14 +47,13 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ![Connexion oracle cloud](imagesTP4/allerSurInstance.png)
 - 3. On clique sur Créer une instance.
   
-![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 4. On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le compartiment où sera créée l'instance.
 
 ![Connexion oracle cloud](imagesTP4/nomInstance.png)
 - 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
 
-![Connexion oracle cloud](imagesTP4/22.04.png)
 ![Connexion oracle cloud](imagesTP4/imageUbuntu.png)
+![Connexion oracle cloud](imagesTP4/22.04.png)
 - 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
 
 ![Connexion oracle cloud](imagesTP4/vNIcMax.png)
