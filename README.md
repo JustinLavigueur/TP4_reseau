@@ -60,7 +60,7 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 [Connexion oracle cloud](imagesTP4/vNIcMax.png)
 - 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste a cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
 
-[Connexion oracle cloud](imagesTP4/cleSSH.png)
+![Connexion oracle cloud](imagesTP4/cleSSH.png)
 - 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
