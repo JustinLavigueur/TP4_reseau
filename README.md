@@ -38,7 +38,32 @@ Photo qui montre le sous-réseau du vcn2:
 
 
 ### 1.2 — Création des instances Ubuntu 22.04
-- On crée **une instance Ubuntu 22.04** dans chaque VCN.
+On crée **une instance Ubuntu 22.04** dans chaque VCN.
+
+#### Étapes de création d'une instance Ubuntu 22.04
+1. On se connecte à notre compte Oracle Cloud (compte déjà créé dans mon cas)
+[Connexion oracle cloud](imagesTP4/connexion_oracle.png)
+
+3. On accède au menu principal → Compute → Instances.
+4. 
+
+
+On clique sur Créer une instance.
+
+On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le VCN et le subnet où l’instance sera créée.
+
+On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
+
+On sélectionne la forme (Shape) adaptée, par exemple VM.Standard.E2.1.Micro.
+
+On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance.
+
+On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
+
+On clique sur Créer l’instance et on attend que son statut devienne Running.
+
+On se connecte à l’instance depuis son terminal avec :
+  
 ![Les instances](imagesTP4/lesintances.png)
 
 **Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
