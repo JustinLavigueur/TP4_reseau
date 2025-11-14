@@ -42,27 +42,35 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 
 #### Étapes de création d'une instance Ubuntu 22.04
 - 1. On se connecte à notre compte Oracle Cloud (compte déjà créé dans mon cas)
-  [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-- 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
-  [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-- 3. On clique sur Créer une instance.
-  [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-
-
-On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le VCN et le subnet où l’instance sera créée.
-
-On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
-
-On sélectionne la forme (Shape) adaptée, par exemple VM.Standard.E2.1.Micro.
-
-On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance.
-
-On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
-
-On clique sur Créer l’instance et on attend que son statut devienne Running.
-
-On se connecte à l’instance depuis son terminal avec :
   
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
+  
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 3. On clique sur Créer une instance.
+  
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 4. On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le compartiment où sera créée l'instance.
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
+
+  [Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste a cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 9. On clique sur Créer l’instance et on attend que son statut devienne Running.
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+- 10. On se connecte à l’instance depuis son terminal avec :
+
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
 ![Les instances](imagesTP4/lesintances.png)
 
 **Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
