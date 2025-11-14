@@ -35,8 +35,6 @@ Photo qui montre le sous-réseau du vcn2:
 - On ajoute une **Internet Gateway** et une **table de routage** par défaut à chaque VCN.
 
 
-
-
 ### 1.2 — Création des instances Ubuntu 22.04
 On crée **une instance Ubuntu 22.04** dans chaque VCN.
 
@@ -55,7 +53,7 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
 
-  [Connexion oracle cloud](imagesTP4/connexionOracle.png)
+[Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
@@ -68,10 +66,15 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 - 9. On clique sur Créer l’instance et on attend que son statut devienne Running.
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-- 10. On se connecte à l’instance depuis son terminal avec :
+- 10. On se connecte à l’instance depuis son terminal avec ssh:
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
+
+- 11. On répète les mêmes étapes pour la cération de la deuxième instance
 ![Les instances](imagesTP4/lesintances.png)
+
+
+---
 
 **Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
 - **instance-TP3A** : rattachée au vcn1.
