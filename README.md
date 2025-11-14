@@ -41,13 +41,13 @@ Photo qui montre le sous-réseau du vcn2:
 On crée **une instance Ubuntu 22.04** dans chaque VCN.
 
 #### Étapes de création d'une instance Ubuntu 22.04
-1. On se connecte à notre compte Oracle Cloud (compte déjà créé dans mon cas)
+- 1. On se connecte à notre compte Oracle Cloud (compte déjà créé dans mon cas)
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
+- 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
-3. On clique sur Créer une instance.
+- 3. On clique sur Créer une instance.
 
 [Connexion oracle cloud](imagesTP4/connexionOracle.png)
 
