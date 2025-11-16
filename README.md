@@ -144,41 +144,32 @@ Voici la preuve:
 
 ---
 
-## Étape 6 — Test de connectivité
-
-### 6.1 — Connexion SSH
-Depuis notre poste local :
-- `ssh ubuntu@<IP_publique_instance_TP3_A>`
-Dans notre cas, 
-
----
-
 # === Évaluation de la performance réseau ===
 
-## Étape 7 — Évaluation de la performance réseau
+## Étape 6 — Évaluation de la performance réseau
 
 On pourra procéder à un test de performance à l’aide de l’utilitaire **iperf3**.  
 Pour installer et utiliser iperf3, on suit les étapes ci-dessous.
 
-### 7.1 — Installation de iperf3
+### 6.1 — Installation de iperf3
 On installe iperf3 sur **les deux instances** :
 
 - `sudo apt update`
 - `sudo apt install iperf3 -y`
 
-### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
+### 6.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
 
 - `iperf3 -s`
 
 Cette action permet le démarrage de iperf3 en mode serveur.
 L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
 
-### 7.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
+### 6.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
 Sur l’instance du vcn2 (instance-TP3B), on lance iperf3 en mode client en visant l’adresse privée de l’instance A :
 
 - `iperf3 -c <IP_privée_instance_VCN1>`
 
-### 7.4 — Résultats du test
+### 6.4 — Résultats du test
 
 iperf3 affiche automatiquement :
 
@@ -192,3 +183,6 @@ Ce test permet de confirmer :
 - que le routage inter-VCN fonctionne,
 - que les deux instances peuvent communiquer sans restriction,
 - et d’évaluer la performance réseau fournie par Oracle Cloud.
+
+# === Mise en place un serveur DHCP ===
+
