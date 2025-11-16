@@ -41,36 +41,35 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 #### Étapes de création d'une instance Ubuntu 22.04
 - 1. On se connecte à notre compte Oracle Cloud (compte déjà créé dans mon cas)
   
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 2. On accède au menu principal et on regarde sur accueuil → Compute → Instances.
   
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![allerSurInstance](imagesTP4/allerSurInstance.png)
 - 3. On clique sur Créer une instance.
   
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 4. On renseigne le nom de l’instance (ex. Ubuntu-VCN1) et on sélectionne le compartiment où sera créée l'instance.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![nomInstance](imagesTP4/nomInstance.png)
 - 5. On choisit l’image Ubuntu 22.04 LTS dans la section Image et forme.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![imageUbuntu](imagesTP4/imageUbuntu.png)
+![22.04](imagesTP4/22.04.png)
 - 6. À l'étape 3 de service du réseau, on sélectionne (si c'est votre cas, un réseau en nuage virtuel existant)
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
-- 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste a cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
+![vNIcMax](imagesTP4/vNIcMax.png)
+- 7. On ajoute sa clé SSH publique pour pouvoir se connecter à l’instance. Si vous n'avez pas de clé SSH en main, juste à cliquer sur **télécharger la clé privée** et **télécharger la clé publique**
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![cleSSH](imagesTP4/cleSSH.png)
 - 8. On vérifie les configurations réseau : IP publique si nécessaire et règles du NSG ou Security List pour autoriser SSH.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
 - 9. On clique sur Créer l’instance et on attend que son statut devienne Running.
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![running](imagesTP4/running.png)
 - 10. On se connecte à l’instance depuis son terminal avec ssh:
 
-[Connexion oracle cloud](imagesTP4/connexionOracle.png)
+![Connexion oracle cloud](imagesTP4/connexionSSH.png)
 
-- 11. On répète les mêmes étapes pour la cération de la deuxième instance
+- 11. On répète les mêmes étapes pour la création de la deuxième instance.
 ![Les instances](imagesTP4/lesintances.png)
 
 
@@ -149,5 +148,47 @@ Voici la preuve:
 
 ### 6.1 — Connexion SSH
 Depuis notre poste local :
-```bash
-ssh ubuntu@<IP_publique_instance_A>
+- `ssh ubuntu@<IP_publique_instance_TP3_A>`
+Dans notre cas, 
+
+---
+
+# === Évaluation de la performance réseau ===
+
+## Étape 7 — Évaluation de la performance réseau
+
+On pourra procéder à un test de performance à l’aide de l’utilitaire **iperf3**.  
+Pour installer et utiliser iperf3, on suit les étapes ci-dessous.
+
+### 7.1 — Installation de iperf3
+On installe iperf3 sur **les deux instances** :
+
+- `sudo apt update`
+- `sudo apt install iperf3 -y`
+
+### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
+
+- `iperf3 -s`
+
+Cette action permet le démarrage de iperf3 en mode serveur.
+L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
+
+### 7.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
+Sur l’instance du vcn2 (instance-TP3B), on lance iperf3 en mode client en visant l’adresse privée de l’instance A :
+
+- `iperf3 -c <IP_privée_instance_VCN1>`
+
+### 7.4 — Résultats du test
+
+iperf3 affiche automatiquement :
+
+- la bande passante (Mbits/sec),
+- la quantité de données transmises,
+- la durée du test,
+- un résumé global de la performance.
+
+Ce test permet de confirmer :
+
+- que le routage inter-VCN fonctionne,
+- que les deux instances peuvent communiquer sans restriction,
+- et d’évaluer la performance réseau fournie par Oracle Cloud.
