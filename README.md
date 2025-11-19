@@ -70,7 +70,7 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ![Connexion oracle cloud](imagesTP4/connexionSSH.png)
 
 - 11. On répète les mêmes étapes pour la création de la deuxième instance.
-![Les instances](imagesTP4/lesintances.png)
+![Les instances](imagesTP4/lesinstances.png)
 
 
 ---
