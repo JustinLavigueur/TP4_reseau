@@ -174,13 +174,14 @@ sudo apt install iperf3 -y
 ```
 
 ## 7.2 — Réinitialisation du pare-feu (iptables)
-Ici, on supprime toutes les règles existantes du pare-feu pour éviter que le trafic iPerf3 soit bloqué.
+On supprime toutes les règles existantes du pare-feu pour éviter que le trafic iPerf3 soit bloqué.
 On s’assure ainsi que les ports nécessaires sont ouverts pour les tests de débit.
 
 ![iptables reset](imagesTP4/iperf3-iptables.png)
 
 
 ## 7.3 — Règles de sécurité OCI
+On vérifie les listes de sécurité (Security Lists) pour chaque instance afin de s’assurer que le trafic iPerf3 est autorisé.
 
 ### Instance A (10.0.0.88)
 ![Security List A](imagesTP4/ingress-rules-instance-a.png)
@@ -190,7 +191,7 @@ On s’assure ainsi que les ports nécessaires sont ouverts pour les tests de d�
 
 
 ## 7.4 — Lancement du serveur iPerf3 (Instance B)
-Ici, on démarre iPerf3 en mode serveur sur l’Instance B.
+On démarre iPerf3 en mode serveur sur l’Instance B.
 On lie le serveur à l’adresse IP 10.1.0.96 pour que le client puisse s’y connecter spécifiquement.
 
 ```bash
@@ -201,7 +202,7 @@ iperf3 -s -B 10.1.0.96
 
 
 ## 7.5 — Lancement du client iPerf3 (Instance A)
-On fait la même chose qu'à l'étape 7.4 sauf avec l'instance A:
+On fait la même chose qu'à l'étape 7.4, sauf avec l'instance A:
 
 ```bash
 iperf3 -c 10.1.0.96
@@ -224,7 +225,7 @@ On observe que le débit mesuré entre les deux instances est proche de 500 Mbit
 
 # 1. Serveur DHCP (Instance B – 10.1.0.96)
 
-## Installation
+## 1.1 —  Installation
 On 
 ```bash
 sudo apt install isc-dhcp-server -y
@@ -232,9 +233,7 @@ sudo apt install isc-dhcp-server -y
 
 ![Installation DHCP Server](imagesTP4/installation-DHCP-Server.png)
 
----
-
-## Fichier `/etc/default/isc-dhcp-server`
+## 1.2 — Fichier `/etc/default/isc-dhcp-server`
 
 ```conf
 INTERFACESv4="ens3"
@@ -243,21 +242,17 @@ INTERFACESv6=""
 
 ![isc-dhcp-server](imagesTP4/isc-dhcp-server.png)
 
----
 
-## Fichier `/etc/dhcp/dhcpd.conf`
+## 1.3 — Fichier `/etc/dhcp/dhcpd.conf`
 
 ![dhcpd.conf](imagesTP4/dhcpd.png)
 
----
-
-## Statut du service DHCP
+## 1.4 — Statut du service DHCP
 
 ![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
 
----
 
-## Règles de pare-feu DHCP
+## 1.5 — Règles de pare-feu DHCP
 
 ![Security List DHCP](imagesTP4/ingress-rules-instance-b.png)
 
@@ -265,7 +260,7 @@ INTERFACESv6=""
 
 # 2. DHCP Relay (Instance A – 10.0.0.49)
 
-## Installation
+## 2.1 — Installation
 
 ```bash
 sudo apt install isc-dhcp-relay -y
@@ -273,16 +268,16 @@ sudo apt install isc-dhcp-relay -y
 
 ![Installation relay](imagesTP4/installation-relay-client.png)
 
----
 
-## Fichier `/etc/default/isc-dhcp-relay`
+## 2.2 — Fichier `/etc/default/isc-dhcp-relay`
 
 ![Config relay](imagesTP4/isc-dhcp-relay.png)
 
----
 
-## Statut du relais
+## 2.3  — Statut du relais
 
 ![Statut relay](imagesTP4/statut-relay.png)
 
 ---
+
+## === Fin ===
