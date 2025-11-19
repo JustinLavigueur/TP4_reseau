@@ -7,15 +7,15 @@
 # === Configuration du routage inter-VCN ===
 
 ## **BUT**
-Créer plusieurs VCN dans Oracle Cloud avec des blocs CIDR **qui ne se chevauchent pas**.  
+Le but est de créer plusieurs VCN dans Oracle Cloud avec des blocs CIDR **qui ne se chevauchent pas**.  
 Pour ce faire, il faut consulter la section *« Sommaire des composants de réseau pour l’appairage au moyen d’une passerelle DRG »*.
 
 ---
 
-# 1. Création des 2 VCN et des deux instances Ubuntu 22.04
+# 1. Création des deux VCN et instances Ubuntu 22.04
 
 ## 1.1 — Création des VCN
-- **vcn1** : CIDR `10.0.0.0/16`  
+- **vcn1** : ==CIDR== `10.0.0.0/16`  
 - **vcn2** : CIDR `10.1.0.0/16`
 
 ![Création des VCN](imagesTP4/lesvcn.png)
