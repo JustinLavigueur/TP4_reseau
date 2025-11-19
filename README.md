@@ -164,12 +164,16 @@ Pour installer et utiliser iperf3, on suit les étapes ci-dessous.
 ### 7.1 — Installation de iperf3
 On installe iperf3 sur **les deux instances** :
 
-- `sudo apt update`
-- `sudo apt install iperf3 -y`
+```bash
+sudo apt update
+sudo apt install iperf3 -y
+```
 
 ### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
 
-- `iperf3 -s`
+```bash
+iperf3 -s
+```
 
 Cette action permet le démarrage de iperf3 en mode serveur.
 L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
@@ -177,7 +181,9 @@ L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
 ### 7.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
 Sur l’instance du vcn2 (instance-TP3B), on lance iperf3 en mode client en visant l’adresse privée de l’instance A :
 
-- `iperf3 -c <IP_privée_instance_VCN1>`
+```bash
+iperf3 -c <IP_privée_instance_VCN1>
+```
 
 ### 7.4 — Résultats du test
 
