@@ -38,43 +38,43 @@ Une **Internet Gateway** et une **table de routage par défaut** sont ajoutées 
 On crée **une instance Ubuntu 22.04 par VCN**.
 
 ### Étapes :
-1. Connexion à Oracle Cloud
+1. Connexion à Oracle Cloud:
 
 ![Connexion oracle cloud](imagesTP4/connexionOracle.png)
 
-2. Menu principal → Accueil → Compute → Instances
+2. On suit le chemin suivant : Menu principal → Accueil → Compute → Instances
 
 ![allerSurInstance](imagesTP4/allerSurInstance.png)
 
 3. On clique sur **Créer une instance**
-4. On donne un nom à l’instance (ex. *Ubuntu-VCN1*) et choisir le compartiment
+4. On donne un nom à l’instance (ex. *Ubuntu-VCN1*) et on choisit un compartiment de notre choix:
 
 ![nomInstance](imagesTP4/nomInstance.png)
 
-5. On sélectionne l’image **Ubuntu 22.04 LTS**
+5. On sélectionne l’image **Ubuntu 22.04**:
 
 ![imageUbuntu](imagesTP4/imageUbuntu.png)
 ![22.04](imagesTP4/22.04.png)
 
-6. Dans l’étape réseau, on sélectionne le VCN existant
+6. Dans l’étape réseau, on sélectionne le VCN existant:
 
 ![vNIcMax](imagesTP4/vNIcMax.png)
 
 7. On ajoute sa clé SSH publique.  
-   Si vous n’en avez pas, télécharger la paire de clés directement.
+   **Si vous n’en avez pas, télécharger la paire de clés directement**
 
 ![cleSSH](imagesTP4/cleSSH.png)
 
 8. On vérifie les règles réseau (NSG/Security List pour SSH)
-9. On clique sur **Créer l’instance** et attendre le statut **Running**
+9. On clique sur **Créer l’instance** et attendre le statut **Running**:
 
 ![running](imagesTP4/running.png)
 
-10. Connexion à l’instance avec SSH
+10. Connexion à l’instance avec SSH:
 
 ![Connexion oracle cloud](imagesTP4/connexionSSH.png)
 
-11. On répéte pour la deuxième instance
+11. On répéte pour la deuxième instance:
 
 ![Les instances](imagesTP4/lesinstances.png)
 
@@ -226,7 +226,7 @@ On observe que le débit mesuré entre les deux instances est proche de 500 Mbit
 # 1. Serveur DHCP (Instance B – 10.1.0.96)
 
 ## 1.1 —  Installation
-On installe le serveur DHCP sur l’instance pour pouvoir attribuer automatiquement des adresses IP aux clients du réseau.
+On installe le serveur DHCP sur l’instance pour pouvoir attribuer automatiquement des adresses IP aux clients du réseau:
 ```bash
 sudo apt install isc-dhcp-server -y
 ```
@@ -244,19 +244,18 @@ INTERFACESv6=""
 ![isc-dhcp-server](imagesTP4/isc-dhcp-server.png)
 
 
-## 1.3 — Fichier `/etc/dhcp/dhcpd.conf`
-On définit dans ce fichier la plage d’adresses IP à distribuer, le masque de sous-réseau, la passerelle et d’autres options DHCP.
+## 1.3 — Fichier `/etc/dhcp/dhcpd.conf:
+On définit dans ce fichier la plage d’adresses IP à distribuer, le masque de sous-réseau, la passerelle et d’autres options DHCP:
 
 ![dhcpd.conf](imagesTP4/dhcpd.png)
 
 ## 1.4 — Statut du service DHCP
-On vérifie que le service DHCP est actif et fonctionne correctement.
+On vérifie que le service DHCP est actif et fonctionne correctement:
 
 ![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
 
-
 ## 1.5 — Règles de pare-feu DHCP
-On configure les règles de sécurité pour autoriser le trafic DHCP (ports 67 et 68 UDP) entre le serveur et les clients.
+On configure les règles de sécurité pour autoriser le trafic DHCP (ports 67 et 68 UDP) entre le serveur et les clients:
 
 ![Security List DHCP](imagesTP4/ingress-rules-instance-b.png)
 
@@ -283,7 +282,7 @@ On permet ainsi la redirection des requêtes DHCP vers le serveur principal.
 
 
 ## 2.3  — Statut du relais
-On vérifie que le service de relais DHCP est actif et fonctionne correctement.
+On vérifie que le service de relais DHCP est actif et fonctionne correctement:
 ![Statut relay](imagesTP4/statut-relay.png)
 
 ---
