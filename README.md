@@ -125,21 +125,21 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 
 ## Étape 5 — Mise à jour des règles de sécurité
 
-### 5.1 — Dans le vcn1
+### 5.1 — Dans le subnet A
 - On autorise :
   - **Type** : ICMP (Ping)
-  - **Source CIDR** : `10.1.0.0/16`
+  - **Source CIDR** : `10.0.0.0/24`
 
 ![Ingress A](imagesTP4/ingress-rules-instance-a.png)
-![Egress A](imagesTP4/egress-rules-instance-a.png)
 
-### 5.2 — Dans le vcn2
+
+### 5.2 — Dans le subnet B
 - On autorise :
   - **Type** : ICMP (Ping)
-  - **Source CIDR** : `10.0.0.0/16`
+  - **Source CIDR** : `10.0.0.0/24`
 
 ![Ingress B](imagesTP4/ingress-rules-instance-b.png)
-![Egress B](imagesTP4/egress-rules-instance-b.png)
+
 
 ---
 
