@@ -61,7 +61,7 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 ![vNIcMax](imagesTP4/vNIcMax.png)
 
 7. On ajoute sa clé SSH publique.  
-   ==Si vous n’en avez pas, télécharger la paire de clés directement.==
+   Si vous n’en avez pas, télécharger la paire de clés directement.
 
 ![cleSSH](imagesTP4/cleSSH.png)
 
@@ -226,7 +226,7 @@ On observe que le débit mesuré entre les deux instances est proche de 500 Mbit
 # 1. Serveur DHCP (Instance B – 10.1.0.96)
 
 ## 1.1 —  Installation
-On 
+On installe le serveur DHCP sur l’instance pour pouvoir attribuer automatiquement des adresses IP aux clients du réseau.
 ```bash
 sudo apt install isc-dhcp-server -y
 ```
@@ -234,7 +234,8 @@ sudo apt install isc-dhcp-server -y
 ![Installation DHCP Server](imagesTP4/installation-DHCP-Server.png)
 
 ## 1.2 — Fichier `/etc/default/isc-dhcp-server`
-
+On configure le serveur DHCP pour qu’il écoute uniquement sur l’interface réseau ens3.
+On laisse IPv6 vide car le réseau utilise uniquement IPv4.
 ```conf
 INTERFACESv4="ens3"
 INTERFACESv6=""
@@ -244,15 +245,18 @@ INTERFACESv6=""
 
 
 ## 1.3 — Fichier `/etc/dhcp/dhcpd.conf`
+On définit dans ce fichier la plage d’adresses IP à distribuer, le masque de sous-réseau, la passerelle et d’autres options DHCP.
 
 ![dhcpd.conf](imagesTP4/dhcpd.png)
 
 ## 1.4 — Statut du service DHCP
+On vérifie que le service DHCP est actif et fonctionne correctement.
 
 ![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
 
 
 ## 1.5 — Règles de pare-feu DHCP
+On configure les règles de sécurité pour autoriser le trafic DHCP (ports 67 et 68 UDP) entre le serveur et les clients.
 
 ![Security List DHCP](imagesTP4/ingress-rules-instance-b.png)
 
@@ -261,6 +265,8 @@ INTERFACESv6=""
 # 2. DHCP Relay (Instance A – 10.0.0.49)
 
 ## 2.1 — Installation
+On installe le relais DHCP pour permettre aux clients d’un autre sous-réseau d’obtenir une adresse IP du serveur DHCP.
+On utilise -y pour valider automatiquement l’installation.
 
 ```bash
 sudo apt install isc-dhcp-relay -y
@@ -270,12 +276,13 @@ sudo apt install isc-dhcp-relay -y
 
 
 ## 2.2 — Fichier `/etc/default/isc-dhcp-relay`
-
+On configure le relais pour qu’il connaisse l’adresse du serveur DHCP et les interfaces réseau à surveiller.
+On permet ainsi la redirection des requêtes DHCP vers le serveur principal.
 ![Config relay](imagesTP4/isc-dhcp-relay.png)
 
 
 ## 2.3  — Statut du relais
-
+On vérifie que le service de relais DHCP est actif et fonctionne correctement.
 ![Statut relay](imagesTP4/statut-relay.png)
 
 ---
