@@ -144,32 +144,42 @@ Voici la preuve:
 
 ---
 
+## Étape 6 — Preuve de ping 
+
+### 6.1 — Ping vers instance TP3_A
+![PingVersA](imagesTP4/pingversa.png)
+
+### 6.2 — Ping vers instance TP3_B
+![PingVersB](imagesTP4/pingversb.png)
+
+---
+
 # === Évaluation de la performance réseau ===
 
-## Étape 6 — Évaluation de la performance réseau
+## Étape 7 — Évaluation de la performance réseau
 
 On pourra procéder à un test de performance à l’aide de l’utilitaire **iperf3**.  
 Pour installer et utiliser iperf3, on suit les étapes ci-dessous.
 
-### 6.1 — Installation de iperf3
+### 7.1 — Installation de iperf3
 On installe iperf3 sur **les deux instances** :
 
 - `sudo apt update`
 - `sudo apt install iperf3 -y`
 
-### 6.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
+### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
 
 - `iperf3 -s`
 
 Cette action permet le démarrage de iperf3 en mode serveur.
 L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
 
-### 6.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
+### 7.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
 Sur l’instance du vcn2 (instance-TP3B), on lance iperf3 en mode client en visant l’adresse privée de l’instance A :
 
 - `iperf3 -c <IP_privée_instance_VCN1>`
 
-### 6.4 — Résultats du test
+### 7.4 — Résultats du test
 
 iperf3 affiche automatiquement :
 
