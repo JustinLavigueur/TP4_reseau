@@ -177,7 +177,7 @@ Cette section présente les étapes de configuration, de diagnostic et de valida
 
 ---
 
-## 🔧 1. Vérification et réinitialisation du pare-feu (iptables)
+## 1. Vérification et réinitialisation du pare-feu (iptables)
 
 Avant de lancer les tests, nous avons identifié que le trafic était bloqué par **iptables**.  
 Nous avons donc vidé toutes les règles et mis les politiques par défaut à **ACCEPT**.
@@ -312,7 +312,7 @@ On s’assure que les règles du pare-feu autorisent le trafic DHCP (ports UDP 6
 
 ---
 
-##  2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
+## 2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
 
 ###  Installation
 On installe le relais DHCP sur l’instance A :
