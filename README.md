@@ -195,17 +195,17 @@ sudo iptables -P FORWARD ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 ```
 
-![iptables reset](imagestp4/iperf3-iptables.png)
+![iptables reset](imagesTP4/iperf3-iptables.png)
 
 ---
 
 ## 2. Vérification des règles de sécurité OCI (Security Lists)
 
 ### Instance A (10.0.0.88)
-![Security List A](imagestp4/ingress-rules-instance-a.png)
+![Security List A](imagesTP4/ingress-rules-instance-a.png)
 
 ### Instance B (10.1.0.96)
-![Security List B](imagestp4/ingress-rules-instance-b.png)
+![Security List B](imagesTP4/ingress-rules-instance-b.png)
 
 Règles importantes :
 
@@ -224,7 +224,7 @@ Règles importantes :
 iperf3 -s -B 10.1.0.96
 ```
 
-![iperf server](imagestp4/iperf3-instance-b.png)
+![iperf server](imagesTP4/iperf3-instance-b.png)
 
 ---
 
@@ -234,7 +234,7 @@ iperf3 -s -B 10.1.0.96
 iperf3 -c 10.1.0.96
 ```
 
-![iperf client](imagestp4/iperf3-instance-a.png)
+![iperf client](imagesTP4/iperf3-instance-a.png)
 
 ---
 
