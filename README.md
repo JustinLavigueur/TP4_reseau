@@ -204,14 +204,15 @@ Ce test permet de confirmer :
 
 ###  Installation du service
 
+On installe le serveur DHCP sur l’instance B avec la commande :
 ```bash
 sudo apt install isc-dhcp-server -y
 ```
 
 ![Installation DHCP Server](imagesTP4/installation-DHCP-Server.png)
 
-### 📌 Fichier `/etc/default/isc-dhcp-server`
-
+###  Fichier `/etc/default/isc-dhcp-server`
+On édite le fichier /etc/default/isc-dhcp-server pour préciser l’interface réseau sur laquelle le DHCP doit écouter :
 ```bash
 INTERFACESv4="ens3"
 INTERFACESv6=""
@@ -219,8 +220,8 @@ INTERFACESv6=""
 
 ![isc-dhcp-server](imagesTP4/isc-dhcp-server.png)
 
-### 📌 Configuration du DHCP : `/etc/dhcp/dhcpd.conf`
-
+###  Configuration du DHCP : `/etc/dhcp/dhcpd.conf`
+On édite le fichier /etc/dhcp/dhcpd.conf pour définir les paramètres du DHCP, comme le nom du serveur, le domaine, les DNS et la plage d’adresses à attribuer :
 ```conf
 server-name "dhcp.vcnb.lan";
 
@@ -245,7 +246,7 @@ subnet 10.1.0.0 netmask 255.255.255.0 {
 ![dhcpd.conf](imagesTP4/dhcpd.png)
 
 ###  Statut du service
-
+On redémarre le serveur DHCP pour appliquer les changements et nn vérifie que le service est actif et fonctionne correctement :
 ```bash
 sudo systemctl restart isc-dhcp-server
 sudo systemctl status isc-dhcp-server
@@ -254,7 +255,7 @@ sudo systemctl status isc-dhcp-server
 ![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
 
 ###  Règles de pare-feu Oracle Cloud
-
+On s’assure que les règles du pare-feu autorisent le trafic DHCP (ports UDP 67 et 68):
 ![Security List DHCP](imagesTP4/regle-dhcp-server.png)
 
 ---
@@ -262,7 +263,7 @@ sudo systemctl status isc-dhcp-server
 ##  2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
 
 ###  Installation
-
+On installe le relais DHCP sur l’instance A :
 ```bash
 sudo apt install isc-dhcp-relay -y
 ```
@@ -270,6 +271,7 @@ sudo apt install isc-dhcp-relay -y
 ![Installation relay](imagesTP4/installation-relay-client.png)
 
 ###  Fichier `/etc/default/isc-dhcp-relay`
+On édite le fichier /etc/default/isc-dhcp-relay pour définir l’adresse du serveur DHCP et l’interface à écouter :
 
 ```conf
 SERVERS="10.1.0.96"
@@ -280,7 +282,7 @@ OPTIONS=""
 ![Config relay](imagesTP4/isc-dhcp-relay.png)
 
 ###  Vérification du service
-
+On redémarre le service DHCP Relay et on vérifie que le service fonctionne correctement :
 ```bash
 sudo systemctl restart isc-dhcp-relay
 sudo systemctl status isc-dhcp-relay
