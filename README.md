@@ -164,8 +164,6 @@ sudo apt update
 sudo apt install iperf3 -y
 ```
 
-### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
-
 # Tests de performance réseau avec iPerf3
 
 Cette section présente les étapes de configuration, de diagnostic et de validation du débit entre les deux instances OCI à l’aide de l’outil **iPerf3**.
