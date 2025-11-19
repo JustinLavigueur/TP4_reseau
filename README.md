@@ -60,8 +60,8 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 ![vNIcMax](imagesTP4/vNIcMax.png)
 
-7. On ajoute sa clé SSH publique  
-   Si vous n’en avez pas, télécharger la paire de clés directement.
+7. On ajoute sa clé SSH publique.  
+   ==Si vous n’en avez pas, télécharger la paire de clés directement.==
 
 ![cleSSH](imagesTP4/cleSSH.png)
 
