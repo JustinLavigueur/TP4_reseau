@@ -196,3 +196,96 @@ Ce test permet de confirmer :
 
 # === Mise en place un serveur DHCP ===
 
+# DHCP – Serveur et Relay
+
+## 🟦 1. Installation et configuration du serveur DHCP (Instance B – 10.1.0.96)
+
+### 📌 Installation du service
+
+```bash
+sudo apt install isc-dhcp-server -y
+```
+
+![Installation DHCP Server](imagesTP4/installation-DHCP-Server.png)
+
+### 📌 Fichier `/etc/default/isc-dhcp-server`
+
+```bash
+INTERFACESv4="ens3"
+INTERFACESv6=""
+```
+
+![isc-dhcp-server](imagesTP4/isc-dhcp-server.png)
+
+### 📌 Configuration du DHCP : `/etc/dhcp/dhcpd.conf`
+
+```conf
+server-name "dhcp.vcnb.lan";
+
+authoritative;
+option domain-name "vcnb.lan";
+option domain-name-servers 8.8.8.8, 1.1.1.1;
+
+ddns-update-style none;
+
+default-lease-time 3600;
+max-lease-time 7200;
+
+subnet 10.1.0.0 netmask 255.255.255.0 {
+  option broadcast-address 10.1.0.255;
+  option routers 10.1.0.1;
+  option domain-name-servers 8.8.8.8, 1.1.1.1;
+  range 10.1.0.50 10.1.0.150;
+  ping-check true;
+}
+```
+
+![dhcpd.conf](dhcpd.png)
+
+### 📌 Statut du service
+
+```bash
+sudo systemctl restart isc-dhcp-server
+sudo systemctl status isc-dhcp-server
+```
+
+![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
+
+### 📌 Règles de pare-feu Oracle Cloud
+
+![Security List DHCP](imagesTP4/regle-dhcp-server.png)
+
+---
+
+## 🟩 2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
+
+### 📌 Installation
+
+```bash
+sudo apt install isc-dhcp-relay -y
+```
+
+![Installation relay](imagesTP4/installation-relay-client.png)
+
+### 📌 Fichier `/etc/default/isc-dhcp-relay`
+
+```conf
+SERVERS="10.1.0.96"
+INTERFACES="ens3"
+OPTIONS=""
+```
+
+![Config relay](imagesTP4/isc-dhcp-relay.png)
+
+### 📌 Vérification du service
+
+```bash
+sudo systemctl restart isc-dhcp-relay
+sudo systemctl status isc-dhcp-relay
+```
+
+![Statut relay](imagesTP4/statut-relay.png)
+
+---
+
+
