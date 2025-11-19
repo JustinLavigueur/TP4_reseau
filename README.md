@@ -240,7 +240,7 @@ subnet 10.1.0.0 netmask 255.255.255.0 {
 }
 ```
 
-![dhcpd.conf](dhcpd.png)
+![dhcpd.conf](imagesTP4/dhcpd.png)
 
 ### 📌 Statut du service
 
