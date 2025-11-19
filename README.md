@@ -278,6 +278,7 @@ sudo apt install isc-dhcp-relay -y
 ## 2.2 — Fichier `/etc/default/isc-dhcp-relay`
 On configure le relais pour qu’il connaisse l’adresse du serveur DHCP et les interfaces réseau à surveiller.
 On permet ainsi la redirection des requêtes DHCP vers le serveur principal.
+
 ![Config relay](imagesTP4/isc-dhcp-relay.png)
 
 
