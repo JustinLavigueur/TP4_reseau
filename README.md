@@ -244,7 +244,7 @@ subnet 10.1.0.0 netmask 255.255.255.0 {
 
 ![dhcpd.conf](imagesTP4/dhcpd.png)
 
-### 📌 Statut du service
+###  Statut du service
 
 ```bash
 sudo systemctl restart isc-dhcp-server
@@ -253,15 +253,15 @@ sudo systemctl status isc-dhcp-server
 
 ![Statut DHCP Server](imagesTP4/statut-server-dhcp.png)
 
-### 📌 Règles de pare-feu Oracle Cloud
+###  Règles de pare-feu Oracle Cloud
 
 ![Security List DHCP](imagesTP4/regle-dhcp-server.png)
 
 ---
 
-## 🟩 2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
+##  2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
 
-### 📌 Installation
+###  Installation
 
 ```bash
 sudo apt install isc-dhcp-relay -y
@@ -269,7 +269,7 @@ sudo apt install isc-dhcp-relay -y
 
 ![Installation relay](imagesTP4/installation-relay-client.png)
 
-### 📌 Fichier `/etc/default/isc-dhcp-relay`
+###  Fichier `/etc/default/isc-dhcp-relay`
 
 ```conf
 SERVERS="10.1.0.96"
@@ -279,7 +279,7 @@ OPTIONS=""
 
 ![Config relay](imagesTP4/isc-dhcp-relay.png)
 
-### 📌 Vérification du service
+###  Vérification du service
 
 ```bash
 sudo systemctl restart isc-dhcp-relay
