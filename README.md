@@ -257,7 +257,7 @@ INTERFACESv6=""
 
 ## Règles de pare-feu DHCP
 
-![Security List DHCP](imagesTP4/regle-dhcp-server.png)
+![Security List DHCP](imagesTP4/ingress-rules-instance-b.png)
 
 ---
 
