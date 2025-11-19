@@ -194,13 +194,15 @@ Ce test permet de confirmer :
 - que les deux instances peuvent communiquer sans restriction,
 - et d’évaluer la performance réseau fournie par Oracle Cloud.
 
+--- 
+
 # === Mise en place un serveur DHCP ===
 
 # DHCP – Serveur et Relay
 
-## 🟦 1. Installation et configuration du serveur DHCP (Instance B – 10.1.0.96)
+## 1. Installation et configuration du serveur DHCP (Instance B – 10.1.0.96)
 
-### 📌 Installation du service
+###  Installation du service
 
 ```bash
 sudo apt install isc-dhcp-server -y
