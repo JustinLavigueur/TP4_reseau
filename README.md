@@ -15,7 +15,7 @@ Pour ce faire, il faut consulter la section *« Sommaire des composants de rése
 # 1. Création des deux VCN et instances Ubuntu 22.04
 
 ## 1.1 — Création des VCN
-- **vcn1** : ==CIDR== `10.0.0.0/16`  
+- **vcn1** : CIDR `10.0.0.0/16`  
 - **vcn2** : CIDR `10.1.0.0/16`
 
 ![Création des VCN](imagesTP4/lesvcn.png)
