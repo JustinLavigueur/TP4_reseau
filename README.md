@@ -46,27 +46,27 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 ![allerSurInstance](imagesTP4/allerSurInstance.png)
 
-3. Cliquer sur **Créer une instance**
-4. Donner un nom à l’instance (ex. *Ubuntu-VCN1*) et choisir le compartiment
+3. On clique sur **Créer une instance**
+4. On donne un nom à l’instance (ex. *Ubuntu-VCN1*) et choisir le compartiment
 
 ![nomInstance](imagesTP4/nomInstance.png)
 
-5. Sélectionner l’image **Ubuntu 22.04 LTS**
+5. On sélectionne l’image **Ubuntu 22.04 LTS**
 
 ![imageUbuntu](imagesTP4/imageUbuntu.png)
 ![22.04](imagesTP4/22.04.png)
 
-6. Dans l’étape réseau, sélectionner le VCN existant
+6. Dans l’étape réseau, on sélectionne le VCN existant
 
 ![vNIcMax](imagesTP4/vNIcMax.png)
 
-7. Ajouter sa clé SSH publique  
+7. On ajoute sa clé SSH publique  
    Si vous n’en avez pas, télécharger la paire de clés directement.
 
 ![cleSSH](imagesTP4/cleSSH.png)
 
-8. Vérifier les règles réseau (NSG/Security List pour SSH)
-9. Cliquer sur **Créer l’instance** et attendre le statut **Running**
+8. On vérifie les règles réseau (NSG/Security List pour SSH)
+9. On clique sur **Créer l’instance** et attendre le statut **Running**
 
 ![running](imagesTP4/running.png)
 
@@ -74,7 +74,7 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 ![Connexion oracle cloud](imagesTP4/connexionSSH.png)
 
-11. Répéter pour la deuxième instance
+11. On répéte pour la deuxième instance
 
 ![Les instances](imagesTP4/lesinstances.png)
 
@@ -93,9 +93,9 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 # 2. Création de la passerelle DRG
 
-1. Aller dans **Networking → Dynamic Routing Gateways**
-2. Cliquer sur **Create DRG**
-3. Nommer la passerelle : `DRG-TP4`
+1. On va dans **Networking → Dynamic Routing Gateways**
+2. On clique sur **Create DRG**
+3. On nomme la passerelle : `DRG-TP4`
 
 ![Création DRG](imagesTP4/drg.png)
 
@@ -103,12 +103,12 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 # 3. Attachement des VCN à la DRG
 
-Dans **Attachments**, créer une attache pour :
+Dans **Attachments**, on crée une attache pour :
 - **vcn1**
-- **vcn2**
-
 ![Attachment VCN A](imagesTP4/attachement-drg-vcna.png)
+- **vcn2**
 ![Attachment VCN B](imagesTP4/attachement-drg-vcnb.png)
+
 
 ---
 
@@ -133,14 +133,14 @@ Route à ajouter :
 # 5. Mise à jour des règles de sécurité
 
 ## 5.1 — Subnet A  
-Autoriser :
+On autorise :
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.1.0.0/24`
 
 ![Ingress A](imagesTP4/ingress-rules-instance-a.png)
 
 ## 5.2 — Subnet B  
-Autoriser :
+On autorise :
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.0.0.0/24`
 
@@ -149,6 +149,7 @@ Autoriser :
 ---
 
 # 6. Preuve de ping
+Ici, on vérifie la connectivité réseau entre les instances en utilisant la commande ping.
 
 ## Vers l’instance TP3_A
 ![PingVersA](imagesTP4/pingversa.png)
@@ -161,25 +162,25 @@ Autoriser :
 # === Évaluation de la performance réseau ===
 
 # 7. Tests de performance avec iPerf3
+Cette section présente les étapes de configuration, de diagnostic et de validation du débit entre les deux instances OCI à l’aide de l’outil **iPerf3**.
 
 ## 7.1 — Installation de iPerf3
 
-Sur **les deux instances** :
+Sur **les deux instances**, on doit faire les commandes suivantes pour installer **iPerf3** :
 
 ```bash
 sudo apt update
 sudo apt install iperf3 -y
 ```
 
----
-
-## 1. Réinitialisation du pare-feu (iptables)
+## 7.2 — Réinitialisation du pare-feu (iptables)
+Ici, on supprime toutes les règles existantes du pare-feu pour éviter que le trafic iPerf3 soit bloqué.
+On s’assure ainsi que les ports nécessaires sont ouverts pour les tests de débit.
 
 ![iptables reset](imagesTP4/iperf3-iptables.png)
 
----
 
-## 2. Règles de sécurité OCI
+## 7.3 — Règles de sécurité OCI
 
 ### Instance A (10.0.0.88)
 ![Security List A](imagesTP4/ingress-rules-instance-a.png)
@@ -187,9 +188,10 @@ sudo apt install iperf3 -y
 ### Instance B (10.1.0.96)
 ![Security List B](imagesTP4/ingress-rules-instance-b.png)
 
----
 
-## 3. Lancement du serveur iPerf3 (Instance B)
+## 7.4 — Lancement du serveur iPerf3 (Instance B)
+Ici, on démarre iPerf3 en mode serveur sur l’Instance B.
+On lie le serveur à l’adresse IP 10.1.0.96 pour que le client puisse s’y connecter spécifiquement.
 
 ```bash
 iperf3 -s -B 10.1.0.96
@@ -197,9 +199,9 @@ iperf3 -s -B 10.1.0.96
 
 ![iperf server](imagesTP4/iperf3-instance-b.png)
 
----
 
-## 4. Lancement du client iPerf3 (Instance A)
+## 7.5 — Lancement du client iPerf3 (Instance A)
+On fait la même chose qu'à l'étape 7.4 sauf avec l'instance A:
 
 ```bash
 iperf3 -c 10.1.0.96
@@ -207,9 +209,9 @@ iperf3 -c 10.1.0.96
 
 ![iperf client](imagesTP4/iperf3-instance-a.png)
 
----
 
-## 5. Résultats
+## 7.6 — Résultats
+On observe que le débit mesuré entre les deux instances est proche de 500 Mbits/s, ce qui indique une connexion stable et performante. On peut donc valider que le réseau OCI entre ces deux instances est bien configuré pour des communications à haut débit.
 
 | Instance   | Rôle     | Débit observé |
 |------------|----------|----------------|
@@ -223,7 +225,7 @@ iperf3 -c 10.1.0.96
 # 1. Serveur DHCP (Instance B – 10.1.0.96)
 
 ## Installation
-
+On 
 ```bash
 sudo apt install isc-dhcp-server -y
 ```
