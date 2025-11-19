@@ -24,12 +24,11 @@ réseau pour l'appairage au moyen d'une passerelle DRG` à ce lien.
 
 Chaque VCN contient un sous-réseau public :
   - `10.0.0.0/24` pour le vcn1
-
-Photo qui montre le sous-réseau du vcn1:
+    
 ![VCN 1](imagesTP4/vcn1.png)
-  - `10.1.0.0/24` pour le vcn2
 
-Photo qui montre le sous-réseau du vcn2:
+  - `10.1.0.0/24` pour le vcn2
+    
 ![VCN 2](imagesTP4/vcn2.png)
     
 - On ajoute une **Internet Gateway** et une **table de routage** par défaut à chaque VCN.
@@ -74,12 +73,13 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 
 
 ---
-
-**Petite erreur avant d'analyser:** Mon collègue a nommé les instances communément (instance-TP3A) et (instance-TP3B), alors qu'on est sur le travail pratique 4. C'est juste un problème de nommage, svp ne pas nous faire perdre des points là-dessus.      
+     
 - **instance-TP3A** : rattachée au vcn1.
-![Instance A](imagesTP4/instance-a-vcn.png)
   
-- **Instance-TP3B** : rattachée au vcn2.  
+![Instance A](imagesTP4/instance-a-vcn.png)
+
+- **Instance-TP3B** : rattachée au vcn2.
+  
 ![Instance B](imagesTP4/instance-b-vcn.png)
 
 - On ouvre les ports suivants :
@@ -93,7 +93,6 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 2. On clique sur **Create DRG**
 3. On nomme la passerelle : `DRG-TP4`
 
-Voici la preuve:
 ![Création DRG](imagesTP4/drg.png)
 
 ## Étape 3 — Attachement des VCN créés prédécemment à la passerelle DRG
