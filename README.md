@@ -82,10 +82,6 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
   
 ![Instance B](imagesTP4/instance-b-vcn.png)
 
-- On ouvre les ports suivants :
-  - **ICMP (Ping)** pour les tests de communication
-  - **22 (SSH)** pour la connexion
-
 
 ## Étape 2 — Création de la passerelle DRG
 
@@ -128,7 +124,7 @@ On crée **une instance Ubuntu 22.04** dans chaque VCN.
 ### 5.1 — Dans le subnet A
 - On autorise :
   - **Type** : ICMP (Ping)
-  - **Source CIDR** : `10.0.0.0/24`
+  - **Source CIDR** : `10.1.0.0/24`
 
 ![Ingress A](imagesTP4/ingress-rules-instance-a.png)
 
