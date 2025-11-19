@@ -171,36 +171,82 @@ sudo apt install iperf3 -y
 
 ### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
 
+# Tests de performance réseau avec iPerf3
+
+Cette section présente les étapes de configuration, de diagnostic et de validation du débit entre les deux instances OCI à l’aide de l’outil **iPerf3**.
+
+---
+
+## 1. Vérification et réinitialisation du pare-feu (iptables)
+
+Avant de lancer les tests, nous avons identifié que le trafic était bloqué par **iptables**.  
+Nous avons donc vidé toutes les règles et mis les politiques par défaut à **ACCEPT**.
+
 ```bash
-iperf3 -s
+sudo iptables -F
+sudo iptables -X
+sudo iptables -t nat -F
+sudo iptables -t nat -X
+sudo iptables -t mangle -F
+sudo iptables -t mangle -X
+
+sudo iptables -P INPUT ACCEPT
+sudo iptables -P FORWARD ACCEPT
+sudo iptables -P OUTPUT ACCEPT
 ```
 
-Cette action permet le démarrage de iperf3 en mode serveur.
-L’instance TP3_A attend les connexions de test provenant de l’autre VCN.
+![iptables reset](imagesTP4/iperf3-iptables.png)
 
-### 7.3 — Lancement de iperf3 en mode client (sur l’instance du vcn2)
-Sur l’instance du vcn2 (instance-TP3B), on lance iperf3 en mode client en visant l’adresse privée de l’instance A :
+---
+
+## 2. Vérification des règles de sécurité OCI (Security Lists)
+
+### Instance A (10.0.0.88)
+![Security List A](imagesTP4/ingress-rules-instance-a.png)
+
+### Instance B (10.1.0.96)
+![Security List B](imagesTP4/ingress-rules-instance-b.png)
+
+Règles importantes :
+
+| Direction | Source / Destination | Protocole | Ports |
+|----------|-----------------------|-----------|--------|
+| Ingress  | 10.0.0.0/24     | TCP       | 5201   |
+| Egress   | 10.0.0.0/24     | All       | All    |
+| Ingress  | 10.1.0.0/24     | TCP       | 5201   |
+| Egress  | 10.1.0.0/24     | All       | All   |
+
+---
+
+## 3. Lancement du serveur iPerf3 sur l’instance B (10.1.0.96)
 
 ```bash
-iperf3 -c <IP_privée_instance_VCN1>
+iperf3 -s -B 10.1.0.96
 ```
 
-### 7.4 — Résultats du test
+![iperf server](imagesTP4/iperf3-instance-b.png)
 
-iperf3 affiche automatiquement :
+---
 
-- la bande passante (Mbits/sec),
-- la quantité de données transmises,
-- la durée du test,
-- un résumé global de la performance.
+## 4. Exécution du client iPerf3 sur l’instance A (10.0.0.88)
 
-Ce test permet de confirmer :
+```bash
+iperf3 -c 10.1.0.96
+```
 
-- que le routage inter-VCN fonctionne,
-- que les deux instances peuvent communiquer sans restriction,
-- et d’évaluer la performance réseau fournie par Oracle Cloud.
+![iperf client](imagesTP4/iperf3-instance-a.png)
 
---- 
+---
+
+## 5. Résultats obtenus
+
+| Instance   | Rôle     | Débit moyen observé |
+|------------|----------|----------------------|
+| Instance A | Client   | ~502 Mbits/sec       |
+| Instance B | Serveur  | ~497 Mbits/sec       |
+
+---
+
 
 # === Mise en place un serveur DHCP ===
 
@@ -266,7 +312,7 @@ On s’assure que les règles du pare-feu autorisent le trafic DHCP (ports UDP 6
 
 ---
 
-##  2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
+## 2. Installation et configuration du DHCP Relay (Instance A – 10.0.0.49)
 
 ###  Installation
 On installe le relais DHCP sur l’instance A :
