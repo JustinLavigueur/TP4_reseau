@@ -171,7 +171,7 @@ sudo apt install iperf3 -y
 
 ### 7.2 — Lancement de iperf3 en mode serveur (sur l’instance du vcn1)
 
-# 📌 Tests de performance réseau avec iPerf3
+# Tests de performance réseau avec iPerf3
 
 Cette section présente les étapes de configuration, de diagnostic et de validation du débit entre les deux instances OCI à l’aide de l’outil **iPerf3**.
 
@@ -195,49 +195,50 @@ sudo iptables -P FORWARD ACCEPT
 sudo iptables -P OUTPUT ACCEPT
 ```
 
-![iptables reset](imagetp4/iperf3-iptables.png)
+![iptables reset](imagestp4/iperf3-iptables.png)
 
 ---
 
-## 🔥 2. Vérification des règles de sécurité OCI (Security Lists)
+## 2. Vérification des règles de sécurité OCI (Security Lists)
 
 ### Instance A (10.0.0.88)
-![Security List A](imagetp4/ingress-rules-instance-a.png)
+![Security List A](imagestp4/ingress-rules-instance-a.png)
 
 ### Instance B (10.1.0.96)
-![Security List B](imagetp4/ingress-rules-instance-b.png)
+![Security List B](imagestp4/ingress-rules-instance-b.png)
 
 Règles importantes :
 
 | Direction | Source / Destination | Protocole | Ports |
 |----------|-----------------------|-----------|--------|
-| Ingress  | 10.0.0.0/24 ou /16     | TCP       | 5201   |
-| Egress   | 10.0.0.0/24 ou /16     | All       | All    |
-| Ingress  | 10.1.0.0/24 ou /16     | TCP       | 5201   |
+| Ingress  | 10.0.0.0/24     | TCP       | 5201   |
+| Egress   | 10.0.0.0/24     | All       | All    |
+| Ingress  | 10.1.0.0/24     | TCP       | 5201   |
+| Egress  | 10.1.0.0/24     | All       | All   |
 
 ---
 
-## 🚀 3. Lancement du serveur iPerf3 sur l’instance B (10.1.0.96)
+## 3. Lancement du serveur iPerf3 sur l’instance B (10.1.0.96)
 
 ```bash
 iperf3 -s -B 10.1.0.96
 ```
 
-![iperf server](imagetp4/iperf3-instance-b.png)
+![iperf server](imagestp4/iperf3-instance-b.png)
 
 ---
 
-## 📡 4. Exécution du client iPerf3 sur l’instance A (10.0.0.88)
+## 4. Exécution du client iPerf3 sur l’instance A (10.0.0.88)
 
 ```bash
 iperf3 -c 10.1.0.96
 ```
 
-![iperf client](imagetp4/iperf3-instance-a.png)
+![iperf client](imagestp4/iperf3-instance-a.png)
 
 ---
 
-## 📊 5. Résultats obtenus
+## 5. Résultats obtenus
 
 | Instance   | Rôle     | Débit moyen observé |
 |------------|----------|----------------------|
@@ -246,32 +247,6 @@ iperf3 -c 10.1.0.96
 
 ---
 
-## ✅ Conclusion
-
-Nous avons :
-
-✔ Diagnostiqué pourquoi le port 5201 ne répondait pas  
-✔ Réinitialisé correctement iptables  
-✔ Validé les règles OCI pour permettre le trafic inter-VCN  
-✔ Réalisé un test iPerf3 fonctionnel avec ~500 Mbits/sec de bande passante  
-
-
-### 7.4 — Résultats du test
-
-iperf3 affiche automatiquement :
-
-- la bande passante (Mbits/sec),
-- la quantité de données transmises,
-- la durée du test,
-- un résumé global de la performance.
-
-Ce test permet de confirmer :
-
-- que le routage inter-VCN fonctionne,
-- que les deux instances peuvent communiquer sans restriction,
-- et d’évaluer la performance réseau fournie par Oracle Cloud.
-
---- 
 
 # === Mise en place un serveur DHCP ===
 
