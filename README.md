@@ -15,13 +15,13 @@ Pour ce faire, il faut consulter la section *« Sommaire des composants de rése
 # 1. Création des deux VCN et instances Ubuntu 22.04
 
 ## 1.1 — Création des VCN
-On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant contenir jusqu’à 65 536 adresses IP. Chaque VCN qu'on crée représente un réseau isolé dans le cloud où l’on pourra déployer des ressources.
+On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant contenir jusqu’à 65 536 adresses IP. Chaque VCN que l’on crée représente un réseau isolé dans le cloud où l’on pourra déployer des ressources.
 - **vcn1** : CIDR `10.0.0.0/16`  
 - **vcn2** : CIDR `10.1.0.0/16`
 
 ![Création des VCN](imagesTP4/lesvcn.png)
 
-Chaque VCN contient un sous-réseau public pouvant contenir jusqu’à 256 adresses IP pour les ressources accessibles depuis Internet:
+Chaque VCN inclut un sous-réseau public de 256 adresses IP pour les ressources accessibles depuis Internet:
 - `10.0.0.0/24` pour **vcn1**
 
 ![VCN 1](imagesTP4/vcn1.png)
@@ -30,14 +30,14 @@ Chaque VCN contient un sous-réseau public pouvant contenir jusqu’à 256 adres
 
 ![VCN 2](imagesTP4/vcn2.png)
 
-On ajoute une **Internet Gateway** et une table de **routage** par défaut à chaque VCN.
-L’Internet Gateway permet aux ressources du VCN d’accéder à Internet et la table de routage par défaut dirige le trafic sortant vers l’Internet Gateway
+On ajoute une **Internet Gateway** et une table de **routage** par défaut à chaque VCN;
+l’Internet Gateway permet aux ressources du VCN d’accéder à Internet et la table de routage par défaut dirige le trafic sortant vers l’Internet Gateway
 
 ---
 
 ## 1.2 — Création des instances Ubuntu 22.04
 
-On crée **une instance Ubuntu 22.04 par VCN**.
+On crée **une instance Ubuntu 22.04 pour chaque VCN**.
 
 ### Étapes :
 1. Connexion à Oracle Cloud:
@@ -76,7 +76,7 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 
 ![Connexion oracle cloud](imagesTP4/connexionSSH.png)
 
-11. On répéte pour la deuxième instance:
+11. On répète pour la deuxième instance:
 
 ![Les instances](imagesTP4/lesinstances.png)
 
@@ -125,7 +125,8 @@ On ajoute une route pour que le trafic destiné au subnet du VCN B (10.1.0.0/16)
 ![Routage Instance A](imagesTP4/routage-instance-a.png)
 
 ## 4.2 — VCN B
-On ajoute une route pour que le trafic destiné au subnet du VCN A (10.0.0.0/16) passe également par le DRG, assurant la connectivité bidirectionnelle entre les VCN créés précédemment :
+On ajoute une route pour que le trafic destiné au subnet du VCN A (10.0.0.0/16) passe par le DRG.
+Cela assure la connectivité bidirectionnelle entre les VCN créés précédemment :
 - **Destination CIDR** : `10.0.0.0/16`
 - **Target** : **DRG**
 
@@ -178,7 +179,7 @@ sudo apt install iperf3 -y
 
 ## 7.2 — Réinitialisation du pare-feu (iptables)
 On supprime toutes les règles existantes du pare-feu pour éviter que le trafic iPerf3 soit bloqué.
-On s’assure ainsi que les ports nécessaires sont ouverts pour les tests de débit.
+On s'assure ainsi que les ports nécessaires sont ouverts pour les tests de débit.
 
 ![iptables reset](imagesTP4/iperf3-iptables.png)
 
