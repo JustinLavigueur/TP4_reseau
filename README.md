@@ -141,14 +141,14 @@ On autorise le trafic ICMP (ping) provenant du subnet B (10.1.0.0/24) pour véri
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.1.0.0/24`
 
-![Ingress A](imagesTP4/ingress-rules-instance-a.png)
+![Ingress A](imagesTP4/rule-icmp-A.png)
 
 ## 5.2 — Subnet B  
 On autorise le trafic ICMP (ping) provenant du subnet A (10.0.0.0/24) pour vérifier que les machines du subnet A peuvent atteindre celles du subnet B :
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.0.0.0/24`
 
-![Ingress B](imagesTP4/ingress-rules-instance-b.png)
+![Ingress B](imagesTP4/rule-icmp-B.png)
 
 ---
 
@@ -188,10 +188,10 @@ On s'assure ainsi que les ports nécessaires sont ouverts pour les tests de déb
 On vérifie les listes de sécurité (Security Lists) pour chaque instance afin de s’assurer que le trafic iPerf3 est autorisé.
 
 ### Instance A (10.0.0.88)
-![Security List A](imagesTP4/ingress-rules-instance-a.png)
+![Security List A](imagesTP4/iperf3-A.png)
 
 ### Instance B (10.1.0.96)
-![Security List B](imagesTP4/ingress-rules-instance-b.png)
+![Security List B](imagesTP4/iperf3-B.png)
 
 
 ## 7.4 — Lancement du serveur iPerf3 (Instance B)
@@ -261,7 +261,7 @@ On vérifie que le service DHCP est actif et fonctionne correctement:
 ## 1.5 — Règles de pare-feu DHCP
 On configure les règles de sécurité pour autoriser le trafic DHCP (ports 67 et 68 UDP) entre le serveur et les clients:
 
-![Security List DHCP](imagesTP4/ingress-rules-instance-b.png)
+![Security List DHCP](imagesTP4/DHCP-B.png)
 
 ---
 
