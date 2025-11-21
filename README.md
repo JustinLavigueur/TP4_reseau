@@ -83,6 +83,7 @@ On crée **une instance Ubuntu 22.04 par VCN**.
 ---
 
 ### Instances créées
+Voici une preuve en photo de nos instances créées
 - **instance-TP3A** : attachée à **vcn1**
 
 ![Instance A](imagesTP4/instance-a-vcn.png)
