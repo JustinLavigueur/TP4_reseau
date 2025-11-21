@@ -15,7 +15,7 @@ Pour ce faire, il faut consulter la section *« Sommaire des composants de rése
 # 1. Création des deux VCN et instances Ubuntu 22.04
 
 ## 1.1 — Création des VCN
-On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant contenir jusqu’à 65 536 adresses IP. Chaque VCN qu'on crée représente un réseau isolé dans le cloud, où l’on pourra déployer des ressources.
+On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant contenir jusqu’à 65 536 adresses IP. Chaque VCN qu'on crée représente un réseau isolé dans le cloud où l’on pourra déployer des ressources.
 - **vcn1** : CIDR `10.0.0.0/16`  
 - **vcn2** : CIDR `10.1.0.0/16`
 
