@@ -15,12 +15,13 @@ Pour ce faire, il faut consulter la section *« Sommaire des composants de rése
 # 1. Création des deux VCN et instances Ubuntu 22.04
 
 ## 1.1 — Création des VCN
+On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant contenir jusqu’à 65 536 adresses IP. Chaque VCN qu'on crée représente un réseau isolé dans le cloud, où l’on pourra déployer des ressources.
 - **vcn1** : CIDR `10.0.0.0/16`  
 - **vcn2** : CIDR `10.1.0.0/16`
 
 ![Création des VCN](imagesTP4/lesvcn.png)
 
-Chaque VCN contient un sous-réseau public :
+Chaque VCN contient un sous-réseau public pouvant contenir jusqu’à 256 adresses IP pour les ressources accessibles depuis Internet:
 - `10.0.0.0/24` pour **vcn1**
 
 ![VCN 1](imagesTP4/vcn1.png)
@@ -29,7 +30,8 @@ Chaque VCN contient un sous-réseau public :
 
 ![VCN 2](imagesTP4/vcn2.png)
 
-Une **Internet Gateway** et une **table de routage par défaut** sont ajoutées à chaque VCN.
+On ajoute une **Internet Gateway** et une table de **routage** par défaut à chaque VCN.
+L’Internet Gateway permet aux ressources du VCN d’accéder à Internet et la table de routage par défaut dirige le trafic sortant vers l’Internet Gateway
 
 ---
 
@@ -115,14 +117,14 @@ Dans **Attachments**, on crée une attache pour :
 # 4. Configuration des tables de routage
 
 ## 4.1 — VCN A
-Route à ajouter :
+On ajoute une route pour que le trafic destiné au subnet du VCN B (10.1.0.0/16) passe par le DRG (Dynamic Routing Gateway) permettant la communication entre les deux VCN :
 - **Destination CIDR** : `10.1.0.0/16`
 - **Target** : **DRG**
 
 ![Routage Instance A](imagesTP4/routage-instance-a.png)
 
 ## 4.2 — VCN B
-Route à ajouter :
+On ajoute une route pour que le trafic destiné au subnet du VCN A (10.0.0.0/16) passe également par le DRG, assurant la connectivité bidirectionnelle entre les VCN créés précédemment :
 - **Destination CIDR** : `10.0.0.0/16`
 - **Target** : **DRG**
 
@@ -133,14 +135,14 @@ Route à ajouter :
 # 5. Mise à jour des règles de sécurité
 
 ## 5.1 — Subnet A  
-On autorise :
+On autorise le trafic ICMP (ping) provenant du subnet B (10.1.0.0/24) pour vérifier que les machines du subnet B peuvent atteindre celles du subnet A :
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.1.0.0/24`
 
 ![Ingress A](imagesTP4/ingress-rules-instance-a.png)
 
 ## 5.2 — Subnet B  
-On autorise :
+On autorise le trafic ICMP (ping) provenant du subnet A (10.0.0.0/24) pour vérifier que les machines du subnet A peuvent atteindre celles du subnet B :
 - **Type** : ICMP (ping)
 - **Source CIDR** : `10.0.0.0/24`
 
