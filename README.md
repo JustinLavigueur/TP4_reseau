@@ -22,11 +22,11 @@ On crée un réseau privé virtuel (VCN) avec un grand bloc d’adresses pouvant
 ![Création des VCN](imagesTP4/lesvcn.png)
 
 Chaque VCN inclut un sous-réseau public de 256 adresses IP pour les ressources accessibles depuis Internet:
-- `10.0.0.0/24` pour **vcn1**
+- `10.0.0.0/24` pour **subnet A (vcn1)**
 
 ![VCN 1](imagesTP4/vcn1.png)
 
-- `10.1.0.0/24` pour **vcn2**
+- `10.1.0.0/24` pour **subnet B (vcn2)**
 
 ![VCN 2](imagesTP4/vcn2.png)
 
